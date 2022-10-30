@@ -142,6 +142,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--header-text-primary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-link:hover,
@@ -183,11 +184,15 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--header-text-secondary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-mail-icon {
   margin-right: 10px;
   fill: var(--icon-primary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-mail:hover,
@@ -208,11 +213,15 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--header-text-secondary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-tel-icon {
   margin-right: 10px;
   fill: var(--icon-primary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-tel:hover,
@@ -415,10 +424,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-soc-icon {
   fill: var(--icon-primary);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-soc-link:hover,
@@ -466,10 +479,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-icon {
   fill: var(--icon-primary);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-link:hover,
@@ -538,6 +553,7 @@ body {
   /* or 171% */
   letter-spacing: 0.03em;
   color: var(--footer-text-primary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-adress:hover,
@@ -553,6 +569,7 @@ body {
   /* or 171% */
   letter-spacing: 0.03em;
   color: var(--footer-text-secondary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-mail:hover,
@@ -568,6 +585,7 @@ body {
   /* or 171% */
   letter-spacing: 0.03em;
   color: var(--footer-text-secondary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-tel:hover,
@@ -610,10 +628,13 @@ body {
   justify-content: center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-soc-icon {
   fill: var(--icon-hover);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-soc-link:hover {
@@ -623,6 +644,60 @@ body {
 .footer-soc-link:focus {
   background: var(--icon-background-secondary);
 }
+
+/* ---------------MODAL----------------*/
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 300ms linear, visibility 300ms linear;
+}
+
+.modal {
+  width: 528px;
+  min-height: 581px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleY(1);
+  transition: transform 300ms linear;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.modal-close {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal-close-icon {
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* ---------------PORTFOLIO MENU----------------*/
 
 .menu-title {
@@ -650,7 +725,9 @@ body {
   background: var(--button-background-secondary);
   border-radius: 4px;
   border-color: transparent;
-
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 .menu-list .item {
@@ -688,9 +765,20 @@ img {
   gap: 30px;
 }
 
+.products-item {
+  position: relative;
+  width: 370px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .products-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.products-item:hover .products-top-text {
+  transform: translateY(0);
 }
 
 .products-item .img {
@@ -712,6 +800,31 @@ img {
   line-height: calc(30 / 16);
   letter-spacing: 0.03em;
   color: var(--body-text-secondary);
+}
+
+.products-top-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.products-top-text {
+  position: absolute;
+  top: 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
 }
 
 .products-list-container {
